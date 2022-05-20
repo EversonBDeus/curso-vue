@@ -1,0 +1,30 @@
+Instalando o axios dentro do  projeto
+ npm i --save axios
+criar arquivo axios.js e dentro dele incluir:
+import Vue from 'vue'
+import axios from 'axios'
+axios.defaults.baseURL = 'https://curso-vue-4b6e7-default-rtdb.firebaseio.com/'  //este é o link do banco de dados do firebase
+Vue.use({
+    install(Vue){
+        Vue.prototype.$htpp = axios
+
+    }
+})
+
+
+Agora importe o arquivo dentro de main.js : import './plugins/axios'
+
+usando axios como requisao ajjaz para salvar no banco do fire base
+
+methods:{
+salvar (){
+this.$http.post('usuarios.json', this.usuario)   (esta parte e para limpar os dados dos inputs depois de salvar )
+.then(resp => {
+this.usuario.nome = ''
+this.usuario.email = ''
+})
+
+}
+}
+
+
